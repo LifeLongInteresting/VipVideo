@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+
+    <ImageView
+        android:id="@+id/image_view_iqiyi"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp"
+        android:src="@drawable/iqiyi" />
+
+    <ImageView
+        android:id="@+id/image_view_tencent"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp"
+        android:src="@drawable/tencent" />
+
+    <ImageView
+        android:id="@+id/image_view_youku"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp"
+        android:src="@drawable/youku_blue" />
+
+
+</LinearLayout>
