@@ -1,7 +1,9 @@
 package com.xforce.vipvideo;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -10,6 +12,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.webkit.WebChromeClient;
+import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -69,9 +72,24 @@ public class PlayActivity extends AppCompatActivity{
         webView_play.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
 
         webView_play.setWebChromeClient(new WebChromeClient());
-        webView_play.setWebViewClient(new WebViewClient());
+        webView_play.setWebViewClient(new WebViewClient() {
+            @Override
+            public WebResourceResponse shouldInterceptRequest(WebView webView, String url) {
+                //判断是否是广告相关的资源链接
+                if (!AdFilterTool.isAd(webView.getContext(), url)) {
+                    //这里是不做处理的数据
+                    return super.shouldInterceptRequest(webView, url);
+                } else {
+                    //有广告的请求数据，我们直接返回空数据，注：不能直接返回null
+                    return new WebResourceResponse(null, null, null);
+                }
+            }
+        });
+
         webView_play.loadUrl(url);
     }
+
+
 
 
 }
