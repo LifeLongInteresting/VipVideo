@@ -2,6 +2,7 @@ package com.xforce.vipvideo;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
@@ -39,7 +40,7 @@ public class ViewActivity extends AppCompatActivity implements View.OnClickListe
 
 
         //获取webview的配置
-        WebSettings settings = webView.getSettings();
+       WebSettings settings = webView.getSettings();
         //配置支持domstorage
         settings.setDomStorageEnabled(true);//启用或禁用DOM缓存
         settings.setAppCacheEnabled(false);//关闭/启用应用缓存
@@ -51,12 +52,14 @@ public class ViewActivity extends AppCompatActivity implements View.OnClickListe
         settings.setLoadWithOverviewMode(true);//和setUseWideViewPort(true)一起解决网页自适应问题
         settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
         webView.canGoBack();
-
+        //同时加载Https和Http混合模式
+        if (Build.VERSION.SDK_INT >= 21) { settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW ); }
 
 
         webView.setWebViewClient(new WebViewClient(){
-            @Override
+            //@Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
+
                 if( url.startsWith("http:") || url.startsWith("https:") ) {
                     view.loadUrl(url);
                     return true;
@@ -67,7 +70,7 @@ public class ViewActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        webView.setWebChromeClient(new WebChromeClient());
+        //webView.setWebChromeClient(new WebChromeClient());
 
         //webView.setWebViewClient(new WebViewClient());
 
