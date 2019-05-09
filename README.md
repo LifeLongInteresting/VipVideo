@@ -1,7 +1,7 @@
 # VipVideo
 Android 爱奇艺、腾讯、优酷免VIP观看VIP会员视频
 
-APP下载：https://pan.baidu.com/s/1ypGA7InlloxTmlCXMLzKBQ
+APP下载：链接: https://pan.baidu.com/s/1D8t9haLBtaYoAy9mPefMDg 提取码: iuvb
 
 博客地址：https://www.cnblogs.com/Aiolos/p/10112293.html
 
