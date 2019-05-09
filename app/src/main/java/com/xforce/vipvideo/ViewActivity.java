@@ -81,7 +81,7 @@ public class ViewActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.imageview_play:
                 Intent intent = new Intent(getApplicationContext(), PlayActivity.class);
-                intent.putExtra("url", "http://api.bbbbbb.me/jx/?url=" + webView.getUrl());
+                intent.putExtra("url", "http://app.baiduoos.cn:2019/vip/?url=" + webView.getUrl());
                 startActivity(intent);
                 break;
         }
